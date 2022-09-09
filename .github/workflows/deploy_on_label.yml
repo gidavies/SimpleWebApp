@@ -4,14 +4,14 @@ on:
   pull_request:
     types:
       - labeled
-      
+
 jobs:
   build:
     uses: gidavies/simplewebapp/.github/workflows/build.yml@main
     with:
       node_version: '16.x'
 
-   deploy:
+  deploy:
     uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure.yml@main
     with:
       envName: 'Test'
