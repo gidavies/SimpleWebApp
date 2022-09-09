@@ -15,6 +15,7 @@ jobs:
       node_version: '16.x'
 
   deploy:
+    if: github.event.label.name == 'deploy to test'
     uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure.yml@main
     with:
       envName: 'Test'
