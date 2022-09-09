@@ -1,4 +1,7 @@
-# Deploy to a test Azure App Service instance when the deploy to test label is selected in a PR 
+# Workflow to build and deploys a Node.js application to an Azure App Service
+# representing a test environment using reusable workflows.
+#
+# Triggered by applying a label in a PR.
 
 on:
   pull_request:
@@ -12,6 +15,7 @@ jobs:
       node_version: '16.x'
 
   deploy:
+    if: github.event.label.name == 'deploy to test'
     uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure.yml@main
     with:
       envName: 'Test'
