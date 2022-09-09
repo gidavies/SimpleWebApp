@@ -11,12 +11,12 @@ permissions:
 
 jobs:
   build:
-    uses: gidavies/simple-app/.github/workflows/build.yml@main
+    uses: gidavies/simplewebapp/.github/workflows/build.yml@main
     with:
       node_version: '16.x'
 
   deploy:
-    uses: gidavies/simple-app/.github/workflows/deploy_to_azure.yml@main
+    uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure.yml@main
     with:
       envName: 'production'
       appServiceName: 'simplewebapp-gd'
