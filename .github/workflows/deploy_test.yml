@@ -1,4 +1,7 @@
-# Deploy to a test Azure App Service instance when the deploy to test label is selected in a PR 
+# Workflow to build and deploys a Node.js application to an Azure App Service
+# representing a test environment using reusable workflows.
+#
+# Triggered by applying a label in a PR.
 
 on:
   pull_request:

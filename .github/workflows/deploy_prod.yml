@@ -1,5 +1,7 @@
-# This workflow builds and deploys a node.js application to an Azure App Service
-# using reusable workflows.
+# Workflow to build and deploys a Node.js application to an Azure App Service
+# representing a production environment using reusable workflows.
+#
+# Triggered on pushing into main.
 
 on:
   push:

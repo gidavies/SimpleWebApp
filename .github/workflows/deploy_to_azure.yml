@@ -1,8 +1,8 @@
 # Reusable workflow to deploy a Node app to an Azure App Service.
 #
 # Calling workflows include:
-#   - The deployment workflow deploy_azure.yml
-#   - The deployment if a label is added in the PR workflow deploy_on_label.yml
+#   - The production deployment workflow deploy_prod.yml
+#   - The test deployment workflow on labelling in a PR deploy_test.yml
 
 on:
   workflow_call:
