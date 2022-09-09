@@ -1,0 +1,12 @@
+# Workflow to run as part of a PR
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: gidavies/simple-app/.github/workflows/build.yml@main
+    with:
+      node_version: '16.x'
