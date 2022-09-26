@@ -35,3 +35,5 @@ jobs:
       with:
         name: node-app
         path: .
+    - name: Add job summary
+      run: echo '### Node app built and tested :build_mode_activated:' >> $GITHUB_STEP_SUMMARY
