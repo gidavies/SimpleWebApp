@@ -42,3 +42,6 @@ jobs:
         app-name: ${{ inputs.appServiceName }}
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+    - name: Add job summary
+      run: echo '### App deployed to ${{ inputs.envName }} :dart:' >> $GITHUB_STEP_SUMMARY
