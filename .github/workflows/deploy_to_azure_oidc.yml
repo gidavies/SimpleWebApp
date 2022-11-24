@@ -13,8 +13,14 @@ on:
       appServiceName:
         required: true
         type: string
-    secrets:
+    secrets:            # Rather than inherit all, explicitly state and require the needed secrets
       PUBLISH_PROFILE:
+        required: true
+      AZURE_CLIENT_ID:
+        required: true
+      AZURE_TENANT_ID:
+        required: true
+      AZURE_SUBSCRIPTION_ID:
         required: true
 
 env:
