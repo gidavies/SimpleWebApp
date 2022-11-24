@@ -19,7 +19,7 @@ on:
         required: true
         type: string
       tagName:
-        required: true: 
+        required: true 
         type: string
     secrets:            # Rather than inherit all, explicitly state and require the needed secrets
       PUBLISH_PROFILE:
