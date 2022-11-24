@@ -8,3 +8,4 @@ EXPOSE 80
 RUN chown -R node /usr/src/app
 USER node
 CMD ["npm", "start"]
+LABEL org.opencontainers.image.description A containerised version of a simple Node.js app
