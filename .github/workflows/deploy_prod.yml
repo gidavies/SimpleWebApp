@@ -17,9 +17,10 @@ jobs:
     uses: gidavies/simplewebapp/.github/workflows/build.yml@main
     with:
       node_version: '16.x'
+  
   publish:
     uses: gidavies/simplewebapp/.github/workflows/containerise.yml@main
-
+    needs: build
 
   deploy:
       # Don't run this job if the commit message contains 'skip deploy'
