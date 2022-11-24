@@ -3,6 +3,8 @@
 #
 # Triggered by applying a label in a PR.
 
+name: Deploy to Test
+
 on:
   pull_request:
     types:

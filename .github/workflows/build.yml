@@ -5,6 +5,8 @@
 #   - The PR required checks workflow pr_checks.yml
 #   - The deployment if a label is added in the PR workflow deploy_on_label.yml
 
+name: Build
+
 on:
   workflow_call:
     inputs:

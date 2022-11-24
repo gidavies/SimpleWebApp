@@ -4,6 +4,8 @@
 #   - The production deployment workflow deploy_prod.yml
 #   - The test deployment workflow on labelling in a PR deploy_test.yml
 
+name: Deploy to Azure using OIDC
+
 on:
   workflow_call:
     inputs:

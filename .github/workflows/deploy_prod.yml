@@ -3,6 +3,8 @@
 #
 # Triggered on pushing into main.
 
+name: Deploy to Production
+
 on:
   push:
     branches: [ "main" ]
@@ -15,6 +17,9 @@ jobs:
     uses: gidavies/simplewebapp/.github/workflows/build.yml@main
     with:
       node_version: '16.x'
+  publish:
+    uses: gidavies/simplewebapp/.github/workflows/containerise.yml@main
+
 
   deploy:
       # Don't run this job if the commit message contains 'skip deploy'

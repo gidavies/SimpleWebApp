@@ -1,5 +1,7 @@
 # Workflow to run as part of a PR
 
+name: PR checks
+
 on:
   pull_request:
     branches: [ "main" ]
