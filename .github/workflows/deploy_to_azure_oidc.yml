@@ -31,7 +31,6 @@ on:
 
 jobs:
   buildPushDeploy:
-    # name: Build and push container to ACR then deploy to App Service
     permissions:
       id-token: write  # Needed for OIDC 
       contents: read
