@@ -30,15 +30,21 @@ on:
         required: true
 
 jobs:
-  build-push-deploy:
+  # Build the container, push to ACR using OIDC and then deploy to App Service
+  container-build-push-deploy:
+    name: Container build publish and deploy
+
     permissions:
       id-token: write  # Needed for OIDC 
       contents: read
+    
     runs-on: ubuntu-latest
+    
     environment:
       name: ${{ inputs.envName }}
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
+    steps:
     - name: Azure login using OIDC
       uses: azure/login@v1
       with:
