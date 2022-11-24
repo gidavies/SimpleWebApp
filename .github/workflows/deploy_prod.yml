@@ -19,7 +19,7 @@ jobs:
   deploy:
       # Don't run this job if the commit message contains 'skip deploy'
     if: "!contains(github.event.head_commit.message, 'skip deploy')"
-    uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure.yml@main
+    uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure_oidc.yml@main
     with:
       envName: 'Production'
       appServiceName: 'simplewebapp-gd'
