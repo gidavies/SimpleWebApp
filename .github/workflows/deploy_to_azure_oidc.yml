@@ -58,11 +58,11 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
     - name: Build and push container to an Azure Container Registry
-        run: |
-          az acr login --name ${{ inputs.acrName }}
-          docker build . -t ${{ inputs.tagName }}
-          docker tag ${{ inputs.tagName }} ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
-          docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
+      run: |
+        az acr login --name ${{ inputs.acrName }}
+        docker build . -t ${{ inputs.tagName }}
+        docker tag ${{ inputs.tagName }} ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
+        docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
 
     - name: Deploy to Azure WebApp
       id: deploy-to-webapp 
