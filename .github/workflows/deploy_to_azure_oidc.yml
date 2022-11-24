@@ -30,7 +30,7 @@ on:
         required: true
 
 jobs:
-  buildPushDeploy:
+  build-push-deploy:
     permissions:
       id-token: write  # Needed for OIDC 
       contents: read
