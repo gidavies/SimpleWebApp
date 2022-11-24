@@ -23,16 +23,13 @@ on:
         type: string
     secrets:            # Rather than inherit all, explicitly state and require the needed secrets
       PUBLISH_PROFILE:
-        required: true
+        required: false
       AZURE_CLIENT_ID:
         required: true
       AZURE_TENANT_ID:
         required: true
       AZURE_SUBSCRIPTION_ID:
         required: true
-
-env:
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Path to the web app project, defaults to the repository root
 
 jobs:
   deploy:
@@ -63,7 +60,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ inputs.appServiceName }}
-        images: ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
+        images: '${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}'
     
     - name: Add container deployment job summary
       run: echo '### Container ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }} deployed to App Service ${{ inputs.appServiceName }} :dart:' >> $GITHUB_STEP_SUMMARY
