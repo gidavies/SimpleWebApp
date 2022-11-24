@@ -16,7 +16,7 @@ on:
         required: true
         type: string
       acrName:
-        required: true: 
+        required: true
         type: string
       tagName:
         required: true: 
