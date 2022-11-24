@@ -59,6 +59,7 @@ jobs:
         docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
 
     - name: Deploy container from ACR to Azure App Service
+      id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ inputs.appServiceName }}
