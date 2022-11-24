@@ -64,6 +64,15 @@ jobs:
         docker tag ${{ inputs.tagName }} ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
         docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
 
+    - name: Deploy container to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ inputs.appServiceName }}
+        images: ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
+    
+    - name: Add container deployment job summary
+      run: echo '### Container ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }} deployed to App Service ${{ inputs.appServiceName }} :dart:' >> $GITHUB_STEP_SUMMARY
+
     - name: Deploy to Azure WebApp
       id: deploy-to-webapp 
       uses: azure/webapps-deploy@v2
