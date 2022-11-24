@@ -43,12 +43,6 @@ jobs:
     environment:
       name: ${{ inputs.envName }}
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v3
-      with:
-        name: node-app
     
     - name: Azure login using OIDC
       uses: azure/login@v1
@@ -64,7 +58,7 @@ jobs:
         docker tag ${{ inputs.tagName }} ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
         docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
 
-    - name: Deploy container to Azure App Service
+    - name: Deploy container from ACR to Azure App Service
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ inputs.appServiceName }}
@@ -72,14 +66,3 @@ jobs:
     
     - name: Add container deployment job summary
       run: echo '### Container ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }} deployed to App Service ${{ inputs.appServiceName }} :dart:' >> $GITHUB_STEP_SUMMARY
-
-    - name: Deploy to Azure WebApp
-      id: deploy-to-webapp 
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ inputs.appServiceName }}
-        publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
-    - name: Add job summary
-      run: echo '### App deployed to ${{ inputs.envName }} :dart:' >> $GITHUB_STEP_SUMMARY
