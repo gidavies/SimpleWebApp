@@ -15,6 +15,12 @@ on:
       appServiceName:
         required: true
         type: string
+      acrName:
+        required: true: 
+        type: string
+      tagName:
+        required: true: 
+        type: string
     secrets:            # Rather than inherit all, explicitly state and require the needed secrets
       PUBLISH_PROFILE:
         required: true
@@ -44,14 +50,21 @@ jobs:
       with:
         name: node-app
     
-    - name: 'Az CLI Login via OIDC'
+    - name: Azure login using OIDC
       uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    
+    - name: Build and push container to an Azure Container Registry
+        run: |
+          az acr login --name ${{ inputs.acrName }}
+          docker build . -t ${{ inputs.tagName }}
+          docker tag ${{ inputs.tagName }} ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
+          docker push ${{ inputs.acrName }}.azurecr.io/${{ inputs.tagName }}:${{ github.sha }}
 
-    - name: 'Deploy to Azure WebApp'
+    - name: Deploy to Azure WebApp
       id: deploy-to-webapp 
       uses: azure/webapps-deploy@v2
       with:
