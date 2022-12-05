@@ -32,10 +32,14 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
+
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
         name: node-app
         path: .
+
     - name: Add job summary
-      run: echo '### Node app built and tested :hammer_and_wrench:' >> $GITHUB_STEP_SUMMARY
+      run: |
+        echo '### Node app built and tested :hammer_and_wrench:' >> $GITHUB_STEP_SUMMARY
+        echo 'Run URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/{{ github.run_id }}' >> $GITHUB_STEP_SUMMARY
