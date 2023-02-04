@@ -12,6 +12,7 @@ A very basic Node.js app to use as an example for workflows using GitHub Actions
 
 The Node app can be deployed to Azure App Service with the included workflows, which are based on the default Actions. There are workflows that are triggered on the following events:
 - Creating a PR.
+- My little change
 - Adding a label during a PR.
 - Merging into main.
 
