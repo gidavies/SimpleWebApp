@@ -19,4 +19,63 @@ public class BookUtils {
 
         return books;
     }
+
+    // filter by Author
+    public static List<Book> filterByAuthor(List<Book> books, String author) {
+        List<Book> filteredBooks = new ArrayList<Book>();
+
+        for (Book book : books) {
+            if (book.getAuthor().equals(author)) {
+                filteredBooks.add(book);
+            }
+        }
+
+        return filteredBooks;
+    }
+
+    // filter by Title
+    public static List<Book> filterByTitle(List<Book> books, String title) {
+        List<Book> filteredBooks = new ArrayList<Book>();
+
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                filteredBooks.add(book);
+            }
+        }
+
+        return filteredBooks;
+    }
+
+    // filter by Author and Title
+    public static List<Book> filterByAuthorAndTitle(List<Book> books, String author, String title) {
+        List<Book> filteredBooks = new ArrayList<Book>();
+
+        for (Book book : books) {
+            if (book.getAuthor().equals(author) && book.getTitle().equals(title)) {
+                filteredBooks.add(book);
+            }
+        }
+
+        return filteredBooks;
+    }
+
+    public static void addBook(List<Book> books, Book book) {
+        books.add(book);
+    }
+
+    public static void removeBook(List<Book> books, Book book) {
+        books.remove(book);
+    }
+
+    public static void updateBook(List<Book> books, Book book) {
+        for (Book b : books) {
+            if (b.getId() == book.getId()) {
+                b.setAuthor(book.getAuthor());
+                b.setTitle(book.getTitle());
+                b.setImage(book.getImage());
+            }
+        }
+    }
+
+    
 }

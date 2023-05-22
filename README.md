@@ -8,6 +8,11 @@ A very basic Node.js app to use as an example for workflows using GitHub Actions
 
 [![.github/workflows/pr_checks.yml](https://github.com/gidavies/SimpleWebApp/actions/workflows/pr_checks.yml/badge.svg)](https://github.com/gidavies/SimpleWebApp/actions/workflows/pr_checks.yml)
 
+## Copilot
+
+GithUb Copilot is a VS Code extension that uses AI to suggest code. It is currently in technical preview and is not available to all users. It is not available to me, so I have not used it in this project.
+
+
 ## Workflows
 
 The Node app can be deployed to Azure App Service with the included workflows, which are based on the default Actions. There are workflows that are triggered on the following events:
