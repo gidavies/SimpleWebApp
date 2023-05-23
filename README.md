@@ -35,3 +35,15 @@ H -->|Calls| F(deploy_to_azure.yml)
 F -->|Needs| C(build.yml)
 ```
 (This is an embedded [Markdown defined Mermaid diagram](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/))
+
+## Copilot for PRs
+
+This repo has been enabled for Copilot for PRs, which is designed to reduce the effort involved in writing a pull request description. 
+
+When you are ready to create a new pull request you can use Copilot to suggest parts of the pull request description. To do this, simply include the relevant markers in your text and they will be expanded for you automatically when you save the description. You can edit your description as much as you like, and whatever markers are present when you save it will be expanded automatically for you. Watch for the 👀 :eyes: 👀 reaction from Copilot to show that its working!
+
+### Markers
+copilot:all all the content, in one go.
+copilot:summary a one-paragraph summary of the changes in the pull request.
+copilot:walkthrough a detailed list of changes, including links to the relevant pieces of code.
+copilot:poem a poem about the changes in the pull request.
