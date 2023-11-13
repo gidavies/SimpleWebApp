@@ -7,3 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// Route to handle POST request to create a new user
+// Path: routes/users.js
+
+/* POST users listing. */
+router.post('/', function(req, res, next) {
+  res.send('Create new user');
+});
