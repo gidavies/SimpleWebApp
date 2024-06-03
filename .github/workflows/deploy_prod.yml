@@ -28,7 +28,7 @@ jobs:
     uses: gidavies/simplewebapp/.github/workflows/deploy_to_azure_oidc.yml@main
     with:
       envName: 'Production'
-      appServiceName: 'simplewebapp-gd-cont'
+      appServiceName: 'simplewebapp-gd-prod'
       acrName: 'simplewebapp'
       tagName: 'simplewebapp'
     secrets:
